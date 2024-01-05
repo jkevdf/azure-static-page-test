@@ -1,0 +1,8 @@
+.text-superpuesto {
+  position: absolute;
+  transform: translate(-30%, -50%);
+  top: 80%;
+  left: 20%;
+  color: white; /* Cambia el color del texto según sea necesario */
+  font-weight: bold;
+}

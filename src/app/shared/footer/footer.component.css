@@ -1,0 +1,28 @@
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.color-main{
+  color: #ffffff;
+}
+
+.color-secondary{
+  color: #ccc;
+}
+
+.color-mail{
+  color: #ffffbf;
+}
+
+.color-twitter{
+  color: #00acee;
+}
+
+.color-instagram{
+  color: #C13584;
+}
+
+.pointer{
+  cursor: pointer;
+}

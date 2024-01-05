@@ -1,0 +1,59 @@
+<header>
+  <div class="px-3 py-2 text-bg-dark border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top
+                    bg-dark border-bottom border-body" data-bs-theme="dark">
+          <div class="container-fluid">
+            <div class="ms-4">
+              <a class="navbar-brand ms-4" routerLink="/" (click)="initialMenu()">
+                <img src="../../../assets/logo/logo-horizontal-1.png" width="50%" height="100%" alt="Bootstrap">
+              </a>
+              <button class="navbar-toggler ms-5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                id="navbarToggler" (click)="openMenu()">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li *ngFor="let item of menuItems()"
+                  class="nav-item px-4" [ngClass]="{'dropdown' : item.children !== undefined}">
+
+                      <ng-container
+                        *ngIf="item.children === undefined; then solo; else multiple">
+                      </ng-container>
+
+                      <ng-template #solo>
+                        <a [routerLink]="[ item.route ]" routerLinkActive="active" (click)="removeActiveGroup()"
+                        class="nav-link" aria-current="page">{{ item.name }}</a>
+                      </ng-template>
+
+                      <ng-template #multiple>
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"
+                        [id]="item.name" #navParent
+                        >
+                            {{ item.name }}
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li *ngFor="let sub of item.children">
+                            <a class="dropdown-item" [routerLink]="[ sub.route ]" routerLinkActive="active"
+                            (click)="activeGroup(navParent)" [routerLinkActiveOptions]="{exact: true}">
+                              {{sub.name}}</a>
+                          </li>
+                        </ul>
+                      </ng-template>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+  </div>
+</header>

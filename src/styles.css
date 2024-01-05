@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+.img {
+  max-height: 35vw !important;
+  overflow: hidden; /* Evita que la imagen se salga del contenedor */
+  position: relative;
+}
+
+.text-sombra {
+  text-shadow: 2px 2px 4px rgba(10, 8, 8, 0.5);
+}
